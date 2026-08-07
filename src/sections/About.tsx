@@ -1,93 +1,91 @@
 import html from "../assets/html.svg";
 import react from "../assets/react.svg";
-import SkillBadge from "../components/ui/skillbadge";
+import SkillBadge from "../components/ui/Skillbadge";
+
 
 function About() {
 
-    const skills = [
-  {
-    image: html,
-    name: "HTML"
-  },
-  {
-    image: react,
-    name: "React"
-  },
-  {
-    image: react,
-    name: "TypeScript"
-  },
-  {
-    image: html,
-    name: "CSS"
-  },
-  {
-    image: react,
-    name: "Node.js"
-  },
-  {
-    image: html,
-    name: "Git"
-  },
-  {
-    image: react,
-    name: "Unity"
-  },
-  {
-    image: html,
-    name: "C#"
-  },
-  {
-    image: react,
-    name: "SQL"
-  }
-];
+  return (
 
-return (
+    <section id="about" className="py-20">
 
-      <section id="about" className="py-20">
+      {/* Section Title */}
+      <h2 className="text-5xl md:text-6xl text-center mb-12">
+        About
+      </h2>
 
-        <h2 className="text-5xl md:text-6xl text-center mb-8">
-        About Me
-        </h2>
+      
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 px-6">
 
-        <div className="flex flex-col md:flex-row items-center mx-4 md:mx-10 gap-8">
 
-            <div className="basis-1/2 p-4 md:p-9">
-                <p className="max-w-xl text-base md:text-lg">
-                Lorem ipsum dolor sit amet...
-                </p>
-            </div>
+        {/* Portrait & Description (Left Side)*/}
+        <div className="basis-1/2 flex flex-col justify-center items-center md:items-start">
 
-            <div 
-                id="skills"
-                className="
-                    basis-1/2
-                    grid
-                    grid-cols-3
-                    gap-4
-                    justify-items-center
-                "
-            >
 
-                {
-                skills.map((skill) => (
-                    <SkillBadge
-                    key={skill.name}
-                    image={skill.image}
-                    name={skill.name}
-                    />
-                ))
-                }
+          <img
+            src={react}
+            alt="Christian Stochholm"
+            className="w-56 h-56 rounded-2xl object-cover shadow-lg mx-auto mb-5"
+          />
 
-            </div>
+
+          <p className="text-base md:text-lg leading-relaxed text-gray-600">
+            I am an engineering graduate specializing in game development,
+            learning technology and interactive digital solutions.
+            I enjoy creating digital experiences that combine creativity,
+            technology and usability.
+          </p>
+
+
+          <p className="text-base md:text-lg leading-relaxed text-gray-600 mt-4">
+            My experience ranges from React and full-stack web development
+            to Unity-based games and interactive applications.
+          </p>
+
 
         </div>
 
+
+
+        {/* Skills (Right Side)*/}
+        <div className="basis-1/2 flex items-center justify-center">
+
+          <div className="flex gap-8 items-center">
+
+            <div className="flex flex-col gap-8">
+              <SkillBadge image={html} name="HTML" />
+              <SkillBadge image={react} name="React" />
+              <SkillBadge image={react} name="React" />
+            </div>
+
+
+            <div className="flex flex-col gap-8">
+              <SkillBadge image={html} name="HTML" />
+              <SkillBadge image={react} name="React" />
+              <SkillBadge image={html} name="HTML" />
+              <SkillBadge image={react} name="React" />
+            </div>
+
+
+            <div className="flex flex-col gap-8">
+              <SkillBadge image={html} name="HTML" />
+              <SkillBadge image={react} name="React" />
+              <SkillBadge image={react} name="React" />
+            </div>
+
+          </div>
+        </div>
+        
+
+
+      </div>
+
+
     </section>
 
-);
+  );
 
 }
+
 
 export default About;
