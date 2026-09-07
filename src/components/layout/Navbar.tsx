@@ -2,7 +2,7 @@ function Navbar() {
 
   return (
 
-    <nav id="navbar" className="sticky top-0 z-50 bg-white/80 backdrop-blur">
+    <nav id="navbar" className="sticky top-0 z-50 bg-white/80 backdrop-blur shadow-xl">
 
       <div className="flex justify-end px-4 md:px-10 py-4">
 

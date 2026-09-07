@@ -1,152 +1,134 @@
-import { useState } from "react";
-
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
 
 interface ProjectProps {
   image: string;
   title: string;
   description: string;
   details: string;
+  technologies: string[];
+  github: string;
+  demo: string;
   extraImages?: string[];
-  demoLink: string;
-  githubLink: string;
-  reverse?: boolean;  
+  reverse?: boolean;
 }
 
-
 function Project({
- image,
- title,
- description,
- details,
- extraImages,
- demoLink,
- githubLink,
- reverse = false
+  image,
+  title,
+  description,
+  details,
+  technologies,
+  extraImages,
+  demo,
+  github,
+  reverse = false,
 }: ProjectProps) {
-
-
-  const [open, setOpen] = useState(false);
-
-
   return (
 
-    <div className="flex flex-col gap-6">
+    <Accordion type="single" collapsible className="w-full">
 
+      <AccordionItem className="border-none" value="details">
 
-      <div
-        className={`
-        flex flex-col md:flex-row items-center gap-8
-        ${reverse ? "md:flex-row-reverse" : ""}
-        `}
-      >
+        {/* Project */}
+        <div className="p-6 bg-white flex flex-col">
 
+          {/* Top row */}
+          <div className={`flex flex-col md:flex-row items-center gap-8 ${reverse ? "md:flex-row-reverse" : ""}`}>
 
-        {/* Clickable demo image */}
-        <a 
-          href={demoLink}
-          target="_blank"
-          className="basis-1/2"
-        >
-
-          <img
-            src={image}
-            alt={title}
-            className="
-              rounded-lg
-              transition-transform
-              duration-300
-              hover:scale-105
-            "
-          />
-
-        </a>
-
-
-
-        <div className="basis-1/2 flex flex-col gap-4">
-
-
-          <h3 className="text-3xl">
-            {title}
-          </h3>
-
-
-          <p>
-            {description}
-          </p>
-
-
-          <div className="flex gap-4">
-
-
-            <a
-              href={githubLink}
-              className="px-4 py-2 bg-black text-white rounded"
-            >
-              Github
+            {/* Image */}
+            <a href={demo} target="_blank" rel="noopener noreferrer" className="basis-1/2 flex justify-center overflow-hidden rounded-lg shadow-2xl">
+              <img src={image} alt={title} className="w-full max-w-xl max-h-96 object-contain rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer"/>
             </a>
 
+            {/* Right side */}
+            <div className={`basis-1/2 flex flex-col gap-4 ${reverse ? "md:items-end md:text-right" : ""}`}>
 
-            <a
-              href={demoLink}
-              className="px-4 py-2 border rounded"
-            >
-              Demo
-            </a>
+              <h3 className="text-3xl font-semibold">
+                {title}
+              </h3>
 
+              <p className="text-muted-foreground">
+                {description}
+              </p>
 
-            <button
-              onClick={() => setOpen(!open)}
-              className="px-4 py-2 border rounded"
-            >
-              {open ? "Close" : "Learn more"}
-            </button>
+              <div className="flex flex-wrap items-center gap-4">
 
+                <a href={github} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded bg-black text-white hover:opacity-80 transition">
+                  Github
+                </a>
 
-          </div>
+                <a href={demo} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded border hover:bg-gray-100 transition">
+                  Demo
+                </a>
 
+                <AccordionTrigger className="px-4 py-2 rounded border hover:bg-gray-100 transition hover:no-underline">
+                  Learn more
+                </AccordionTrigger>
 
-        </div>
-
-      </div>
-
-
-
-      {/* Accordion */}
-      {open && (
-
-        <div className="p-6 rounded-lg bg-gray-100">
-
-          <p>
-            {details}
-          </p>
-
-
-          {extraImages && (
-
-            <div className="flex flex-wrap gap-4 mt-6">
-
-              {extraImages.map((img,index)=>(
-                <img
-                  key={index}
-                  src={img}
-                  className="w-64 rounded"
-                />
-              ))}
+              </div>
 
             </div>
 
-          )}
+          </div>
+
+          {/* Full-width accordion */}
+          <AccordionContent>
+
+            <div className="mt-6 pt-6 flex flex-col gap-6">
+
+              <p>
+                {details}
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+
+                {technologies.map((tech) => (
+
+                  <span
+                    key={tech}
+                    className="px-3 py-1 rounded-full bg-white border text-sm shadow-sm"
+                  >
+                    {tech}
+                  </span>
+
+                ))}
+
+              </div>
+
+              {extraImages && extraImages.length > 0 && (
+
+                <div className="flex flex-wrap gap-4">
+
+                  {extraImages.map((img, index) => (
+
+                    <img
+                      key={index}
+                      src={img}
+                      alt={`${title} screenshot ${index + 1}`}
+                      className="w-64 rounded-lg shadow-md"
+                    />
+
+                  ))}
+
+                </div>
+
+              )}
+
+            </div>
+
+          </AccordionContent>
 
         </div>
 
-      )}
+      </AccordionItem>
 
-
-    </div>
-
+    </Accordion>
   );
 }
-
 
 export default Project;

@@ -1,5 +1,15 @@
 import html from "../assets/html.svg";
+import css from "../assets/css.svg";
+import js from "../assets/javascript.svg";
+import ts from "../assets/typescript.svg";
 import react from "../assets/react.svg";
+import vite from "../assets/vite.svg";
+import tailwind from "../assets/tailwind.svg";
+import postgresql from "../assets/postgresql.svg";
+import nodejs from "../assets/nodejs.svg";
+import mongodb from "../assets/mongodb.svg";
+import git from "../assets/git.svg";
+
 import SkillBadge from "../components/ui/Skillbadge";
 
 
@@ -53,24 +63,24 @@ function About() {
           <div className="flex gap-8 items-center">
 
             <div className="flex flex-col gap-8">
-              <SkillBadge image={html} name="HTML" />
-              <SkillBadge image={react} name="React" />
-              <SkillBadge image={react} name="React" />
+              <SkillBadge image={css} name="CSS" />
+              <SkillBadge image={tailwind} name="Tailwind" />
+              <SkillBadge image={mongodb} name="MongoDB" />
             </div>
 
 
             <div className="flex flex-col gap-8">
               <SkillBadge image={html} name="HTML" />
               <SkillBadge image={react} name="React" />
-              <SkillBadge image={html} name="HTML" />
-              <SkillBadge image={react} name="React" />
+              <SkillBadge image={vite} name="Vite" />
+              <SkillBadge image={git} name="Git" />
             </div>
 
 
             <div className="flex flex-col gap-8">
-              <SkillBadge image={html} name="HTML" />
-              <SkillBadge image={react} name="React" />
-              <SkillBadge image={react} name="React" />
+              <SkillBadge image={js} name="Javascript" />
+              <SkillBadge image={ts} name="Typescript" />
+              <SkillBadge image={nodejs} name="NodeJS" />
             </div>
 
           </div>
