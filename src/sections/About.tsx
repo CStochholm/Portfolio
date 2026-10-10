@@ -10,7 +10,7 @@ import nodejs from "../assets/nodejs.svg";
 import mongodb from "../assets/mongodb.svg";
 import git from "../assets/git.svg";
 
-import SkillBadge from "../components/ui/Skillbadge";
+import SkillBadge from "../components/ui/skillbadge";
 
 
 function About() {
