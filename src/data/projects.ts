@@ -1,4 +1,4 @@
-import project1 from "../assets/project1.png";
+// import project1 from "../assets/project1.png";
 import intersportImage from "../assets/Intersport (1).jpg";
 import cardTrackerImage from "../assets/Intersport (2).jpg";
 import instagramImage from "../assets/Intersport (3).jpg";
